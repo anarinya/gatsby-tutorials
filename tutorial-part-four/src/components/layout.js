@@ -11,11 +11,12 @@ export default ({ children }) => (
         site {
           siteMetadata {
             title
+            subtitle
           }
         }
       }
     `}
-    render={data => (
+    render={({ site: { siteMetadata: { title, subtitle } }}) => (
       <div
         className={css`
           margin: 0 auto;
@@ -32,7 +33,7 @@ export default ({ children }) => (
               font-style: normal;
             `}
           >
-            {data.site.siteMetadata.title}
+            {title} {subtitle}
           </h3>
         </Link>
         <Link
